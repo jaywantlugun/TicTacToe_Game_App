@@ -57,10 +57,18 @@ class MainActivity : AppCompatActivity() {
         join_room_layout = findViewById(R.id.join_room_layout)
         create_room_layout = findViewById(R.id.create_room_layout)
 
+        btn_single_player.setOnClickListener {
+            val intent = Intent(this,OfflineGameActivity::class.java)
+            intent.putExtra("player2",1)
+            startActivity(intent)
+        }
+
         btn_two_player.setOnClickListener {
             join_room_layout.visibility = View.GONE
             create_room_layout.visibility = View.GONE
             two_player_layout.visibility = View.VISIBLE
+
+            startTwoPlayerGame()
         }
 
         btn_join_room.setOnClickListener {
@@ -78,6 +86,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun startTwoPlayerGame() {
+
+        if(edt_player1_name.text.toString() == "" || edt_player2_name.text.toString()==""){
+
+            Toast.makeText(this,"Enter player name",Toast.LENGTH_LONG).show()
+            return
+        }
+
+        val player1name = edt_player1_name.text.toString()
+        val player2name = edt_player2_name.text.toString()
+        edt_player1_name.setText("")
+        edt_player2_name.setText("")
+
+        val intent = Intent(this,OfflineGameActivity::class.java)
+        intent.putExtra("player2",2)
+        intent.putExtra("player1name",player1name)
+        intent.putExtra("player2name",player2name)
+        startActivity(intent)
+    }
+
     private fun create_room() {
         var username:String = edt_create_name.text.toString()
         if(username==""){
@@ -93,7 +121,7 @@ class MainActivity : AppCompatActivity() {
             firebaseReference.child(room_id.toString()).child("Player1Wins").setValue(0)
             firebaseReference.child(room_id.toString()).child("Player2Wins").setValue(0)
 
-            val intent = Intent(this,GameActivity::class.java)
+            val intent = Intent(this,OnlineGameActivity::class.java)
             intent.putExtra("my_username",username)
             intent.putExtra("room_id",room_id.toString())
             startActivity(intent)
@@ -125,7 +153,7 @@ class MainActivity : AppCompatActivity() {
                                 firebaseReference.child(room_id.toString()).child("Players").child("Player2").setValue(username)
                                 edt_join_name.setText("")
                                 edt_join_room_id.setText("")
-                                val intent = Intent(this@MainActivity,GameActivity::class.java)
+                                val intent = Intent(this@MainActivity,OnlineGameActivity::class.java)
                                 intent.putExtra("my_username",username)
                                 intent.putExtra("room_id",room_id.toString())
                                 startActivity(intent)

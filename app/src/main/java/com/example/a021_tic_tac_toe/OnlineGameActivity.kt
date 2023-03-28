@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 
-class GameActivity : AppCompatActivity() {
+class OnlineGameActivity : AppCompatActivity() {
 
     lateinit var txt_player1:TextView
     lateinit var txt_player2:TextView
@@ -54,7 +54,7 @@ class GameActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game)
+        setContentView(R.layout.activity_online_game)
 
         txt_player1 = findViewById(R.id.txt_player1)
         txt_player2 = findViewById(R.id.txt_player2)
@@ -265,7 +265,7 @@ class GameActivity : AppCompatActivity() {
             ) && player1Steps.contains(8))
         ){
             //pLAYER 1 WINS
-            Toast.makeText(this@GameActivity, "$player Wins",Toast.LENGTH_LONG).show()
+            Toast.makeText(this@OnlineGameActivity, "$player Wins",Toast.LENGTH_LONG).show()
             btn_game_restart.isVisible = true
 
             if(player == my_username) {
@@ -273,7 +273,7 @@ class GameActivity : AppCompatActivity() {
             }
         }
         else if((player1Steps.size+player2Steps.size)==9){
-            Toast.makeText(this@GameActivity, "Draw",Toast.LENGTH_LONG).show()
+            Toast.makeText(this@OnlineGameActivity, "Draw",Toast.LENGTH_LONG).show()
             btn_game_restart.isVisible = true
         }
 
