@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:id="@+id/layout_player1"
+                android:padding="5dp"
+                android:background="@color/black"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_player1"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Player 1"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cross"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/txt_player1_wins"
+                android:layout_weight="2"
+                android:layout_width="60dp"
+                android:text="0"
+                android:textSize="80dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:gravity="center"
+                android:text="-"
+                android:textSize="80dp"
+                android:layout_weight="1"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/txt_player2_wins"
+                android:text="0"
+                android:textSize="80dp"
+                android:layout_weight="2"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:id="@+id/layout_player2"
+                android:padding="5dp"
+                android:background="@color/black"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_player2"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Player 2"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zero"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/game_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/img4"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <ImageView
+                android:id="@+id/img5"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <ImageView
+                android:id="@+id/img6"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/img7"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <ImageView
+                android:id="@+id/img8"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <ImageView
+                android:id="@+id/img9"
+                android:layout_margin="2dp"
+                android:background="@color/purple_700"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_game_restart"
+            android:visibility="gone"
+            android:layout_marginTop="50dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Restart"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
